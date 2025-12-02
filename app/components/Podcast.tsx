@@ -271,7 +271,7 @@ function PodcastCard({
                   <Pause className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground fill-current" />
                 ) : (
                   <Play className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground fill-current ml-0.5" />
-                )}
+                )}  
               </Button>
             </div>
 

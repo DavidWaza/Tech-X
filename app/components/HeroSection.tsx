@@ -37,7 +37,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "CEO, FinStack Technologies",
     description: "From Lagos to global fintech dominance. Watch how Adaora built Africa's fastest-growing payment infrastructure.",
     videoUrl: "https://www.youtube.com/watch?v=oX7OduG1YmI",
-    thumbnailGradient: "from-primary/80 to-gold-dark/60",
+    thumbnailGradient: "from-primary/80 to-saharan-red/60",
     tag: "Featured This Week",
     initials: "AO"
   },
@@ -47,7 +47,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "Founder, AgriTech Ghana",
     description: "Revolutionizing African agriculture through AI-powered solutions. A story of innovation and resilience.",
     videoUrl: "https://www.youtube.com/watch?v=hmtuvNfytjM",
-    thumbnailGradient: "from-teal/80 to-emerald-600/60",
+    thumbnailGradient: "from-kente-green/80 to-nile-blue/60",
     tag: "Trending Now",
     initials: "KM"
   },
@@ -57,7 +57,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "CTO, CloudNine Africa",
     description: "Building cloud infrastructure for the continent. How one woman is changing Africa's digital landscape.",
     videoUrl: "https://www.youtube.com/watch?v=5KmopXwjXik",
-    thumbnailGradient: "from-purple-600/80 to-pink-500/60",
+    thumbnailGradient: "from-nubian-purple/80 to-primary-dark/70",
     tag: "Editor's Pick",
     initials: "AH"
   },
@@ -67,7 +67,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "CEO, EduLearn Africa",
     description: "Democratizing education across 15 African countries. The journey of Africa's EdTech pioneer.",
     videoUrl: "https://www.youtube.com/watch?v=1_gJp2uAjO0",
-    thumbnailGradient: "from-orange-500/80 to-red-600/60",
+    thumbnailGradient: "from-primary/80 to-deep-brown/60",
     tag: "New Episode",
     initials: "OA"
   },
@@ -77,7 +77,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "Founder, HealthBridge",
     description: "Connecting rural communities to healthcare. A mission-driven approach to African healthtech.",
     videoUrl: "https://www.youtube.com/watch?v=5zvnFM2BXqY",
-    thumbnailGradient: "from-cyan-500/80 to-blue-600/60",
+    thumbnailGradient: "from-nile-blue/80 to-primary/60",
     tag: "Spotlight",
     initials: "FD"
   }

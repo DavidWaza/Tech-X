@@ -2,6 +2,7 @@ import { HeroSection } from "./components/HeroSection";
 import { Navbar } from "./components/Navbar";
 import { PodcastSection } from "./components/Podcast";
 import { WebinarSection } from "./components/Webinars";
+import { CommunitySection } from "./components/Community";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <HeroSection />
         <PodcastSection />
         <WebinarSection />
+        <CommunitySection />
       </main>
     </div>
   );

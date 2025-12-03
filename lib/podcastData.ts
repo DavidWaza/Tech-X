@@ -86,28 +86,5 @@ export const podcasts: Podcast[] = [
     date: "Nov 15",
     episode: "Episode six"
   },
-  {
-    id: 7,
-    title: "Blockchain & Web3 in Africa",
-    host: "Tendai Moyo",
-    description: "Exploring the potential of decentralized technologies and cryptocurrency adoption across the continent.",
-    duration: "50 min",
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    category: "Blockchain",
-    date: "Nov 12",
-    episode: "Episode seven"
-  },
-  {
-    id: 8,
-    title: "Sustainable Energy Solutions",
-    host: "Nia Kamau",
-    description: "Innovative approaches to solving Africa's energy crisis through solar and renewable technologies.",
-    duration: "46 min",
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    category: "CleanTech",
-    date: "Nov 10",
-    episode: "Episode eight"
-  }
+
 ];

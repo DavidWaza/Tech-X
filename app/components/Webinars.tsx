@@ -58,7 +58,7 @@ export function WebinarSection() {
               Live & Upcoming
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold">
-              Join our Spaces
+              Join our Space
             </h2>
             <p className="text-muted-foreground max-w-lg">
               Join live sessions with industry leaders and gain exclusive

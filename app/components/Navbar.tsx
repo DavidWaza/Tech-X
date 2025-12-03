@@ -54,9 +54,9 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <a href="#home" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg group-hover:shadow-primary/50 transition-all duration-300 group-hover:scale-105">
+              {/* <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg group-hover:shadow-primary/50 transition-all duration-300 group-hover:scale-105">
                 <Headphones className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
-              </div>
+              </div> */}
               <div className="flex flex-col">
                 <span className="font-sansita font-bold text-xl md:text-2xl text-foreground group-hover:text-primary transition-colors">
                   Tech X

@@ -99,7 +99,7 @@ export function HeroSection() {
       const scrollAmount = 320;
       carouselRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -120,9 +120,9 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden">
+    <section className="relative lg:min-h-screen bg-background overflow-hidden">
       {/* Main Video Player Area - Netflix Style */}
-      <div className="relative w-full aspect-video max-h-[85vh]">
+      <div className="relative w-full min-h-[55vh] sm:min-h-[65vh] md:min-h-0 md:aspect-video md:max-h-[70vh] lg:max-h-[85vh]">
         {/* Fade transition effect */}
         <div
           className={`absolute inset-0 bg-background transition-opacity duration-300 z-10 pointer-events-none ${
@@ -140,7 +140,9 @@ export function HeroSection() {
             <iframe
               width="100%"
               height="100%"
-                src={`https://www.youtube.com/embed/${getYouTubeVideoId(activeContent.videoUrl)}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+              src={`https://www.youtube.com/embed/${getYouTubeVideoId(
+                activeContent.videoUrl
+              )}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
               title={activeContent.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -164,37 +166,41 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-linear-to-r from-background/80 via-transparent to-transparent" />
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 lg:p-16">
+        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-10 lg:p-16">
           <div className="max-w-2xl animate-fade-up">
-            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
-              <span className="text-sm font-medium text-primary">
+            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-2 sm:mb-3 md:mb-4">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse-slow" />
+              <span className="text-xs sm:text-sm font-medium text-primary">
                 {activeContent.tag}
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-sansita font-bold mb-3 text-foreground">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-sansita font-bold mb-2 sm:mb-3 text-foreground leading-tight">
               {activeContent.title}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-2">
+            <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-muted-foreground mb-1 sm:mb-2">
               {activeContent.subtitle}
             </p>
-            <p className="text-base md:text-lg text-muted-foreground/80 max-w-xl mb-6">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground/80 max-w-xl mb-4 sm:mb-5 md:mb-6 line-clamp-2 sm:line-clamp-3">
               {activeContent.description}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
               <Button
                 variant="hero"
                 size="lg"
-                className="gap-2"
+                className="gap-2 w-full sm:w-auto text-sm sm:text-base"
                 onClick={() => setIsPlayingModal(true)}
               >
-                <Play className="w-5 h-5 fill-current" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
                 Start Journey
               </Button>
-              <Button variant="glass" size="lg" className="gap-2">
-                <Info className="w-5 h-5" />
+              <Button
+                variant="glass"
+                size="lg"
+                className="gap-2 w-full sm:w-auto text-sm sm:text-base"
+              >
+                <Info className="w-4 h-4 sm:w-5 sm:h-5" />
                 More Info
               </Button>
             </div>
@@ -202,20 +208,20 @@ export function HeroSection() {
         </div>
 
         {/* Video Controls - Top Right */}
-        <div className="absolute top-6 right-6 flex items-center gap-3 z-20">
+        {/* <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 flex items-center gap-2 sm:gap-3 z-20">
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full bg-background/30 backdrop-blur-sm border border-muted-foreground/20 hover:bg-background/50"
+            className="rounded-full bg-background/30 backdrop-blur-sm border border-muted-foreground/20 hover:bg-background/50 w-8 h-8 sm:w-10 sm:h-10"
             onClick={toggleMute}
           >
             {isMuted ? (
-              <VolumeX className="w-5 h-5" />
+              <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
             ) : (
-              <Volume2 className="w-5 h-5" />
+              <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
             )}
           </Button>
-        </div>
+        </div> */}
 
         {/* Progress Indicator */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-muted/30">
@@ -224,28 +230,28 @@ export function HeroSection() {
       </div>
 
       {/* Carousel Section - Below Video */}
-      <div className="relative bg-background py-8 mt-1 lg:px-16">
+      <div className="relative bg-background py-4 sm:py-6 md:py-8 mt-1 px-4 sm:px-6 lg:px-16">
         <div className="container">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-display font-semibold text-foreground">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <h2 className="text-base sm:text-lg md:text-xl font-display font-semibold text-foreground">
               Featured Entrepreneurs
             </h2>
-            <div className="flex gap-2">
+            <div className="hidden sm:flex gap-2">
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full border border-muted-foreground/30 hover:border-primary hover:bg-primary/10"
+                className="rounded-full border border-muted-foreground/30 hover:border-primary hover:bg-primary/10 w-8 h-8 sm:w-10 sm:h-10"
                 onClick={() => scrollCarousel("left")}
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full border border-muted-foreground/30 hover:border-primary hover:bg-primary/10"
+                className="rounded-full border border-muted-foreground/30 hover:border-primary hover:bg-primary/10 w-8 h-8 sm:w-10 sm:h-10"
                 onClick={() => scrollCarousel("right")}
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </div>
           </div>
@@ -253,7 +259,7 @@ export function HeroSection() {
           {/* Carousel */}
           <div
             ref={carouselRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4 pt-7"
+            className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide pb-3 sm:pb-4 -mx-4 px-4 pt-4 sm:pt-7 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {featuredContent.map((content, index) => (
@@ -270,15 +276,15 @@ export function HeroSection() {
 
       {/* Video Modal */}
       {isPlayingModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4">
           <div className="relative w-full max-w-5xl">
             {/* Close Button */}
             <button
               onClick={() => setIsPlayingModal(false)}
-              className="absolute -top-12 right-0 text-white hover:text-primary transition-colors"
+              className="absolute -top-8 sm:-top-12 right-0 text-white hover:text-primary transition-colors"
             >
               <svg
-                className="w-8 h-8"
+                className="w-6 h-6 sm:w-8 sm:h-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -352,8 +358,8 @@ function CarouselCard({ content, isActive, onClick }: CarouselCardProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`
-        relative flex-shrink-0 w-72 h-40 rounded-lg overflow-hidden cursor-pointer
-        transition-all duration-300 ease-out
+        relative flex-shrink-0 w-56 sm:w-64 md:w-72 h-32 sm:h-36 md:h-40 rounded-lg overflow-hidden cursor-pointer
+        transition-all duration-300 ease-out snap-start
         ${isActive ? "ring-2 ring-primary scale-105" : "hover:scale-105"}
       `}
     >
@@ -372,36 +378,50 @@ function CarouselCard({ content, isActive, onClick }: CarouselCardProps) {
       </video>
 
       {/* Gradient Thumbnail */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${content.thumbnailGradient} transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}>
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${
+          content.thumbnailGradient
+        } transition-opacity duration-300 ${
+          isHovered ? "opacity-0" : "opacity-100"
+        }`}
+      >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 p-4 flex flex-col justify-end">
-        <div className="flex items-center gap-3">
-          <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${content.thumbnailGradient} flex items-center justify-center text-white font-bold text-sm`}>
+      <div className="absolute inset-0 p-3 sm:p-4 flex flex-col justify-end">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div
+            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br ${content.thumbnailGradient} flex items-center justify-center text-white font-bold text-xs sm:text-sm`}
+          >
             {content.initials}
           </div>
-          <div>
-            <h3 className="font-display font-semibold text-white text-sm leading-tight">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-display font-semibold text-white text-xs sm:text-sm leading-tight truncate">
               {content.title}
             </h3>
-            <p className="text-white/70 text-xs">{content.subtitle}</p>
+            <p className="text-white/70 text-[10px] sm:text-xs truncate">
+              {content.subtitle}
+            </p>
           </div>
         </div>
       </div>
 
       {/* Tag */}
-      <div className="absolute top-3 left-3">
-        <span className="text-[10px] font-semibold uppercase tracking-wider text-white/90 bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
+      <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
+        <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-white/90 bg-black/40 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1 rounded">
           {content.tag}
         </span>
       </div>
 
       {/* Play Icon on Hover */}
-      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${isHovered ? "opacity-100" : "opacity-0"}`}>
-        <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-          <Play className="w-6 h-6 text-white fill-white" />
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+          <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-white" />
         </div>
       </div>
     </div>

@@ -41,12 +41,12 @@ export function CommunitySection() {
   return (
     <section
       id="community"
-      className="py-24 bg-gradient-to-b from-background to-primary/5 relative overflow-hidden px-8 lg:px-16"
+      className="py-10 lg:py-24 bg-gradient-to-b from-background to-primary/5 relative overflow-hidden px-3 lg:px-16"
     >
       {/* Background Decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl" />
 
-      <div className="container px-4 relative">
+      <div className="xl:container px-4 relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -56,7 +56,8 @@ export function CommunitySection() {
             Be Part of Africa's Tech Community
           </h2>
           <p className="text-muted-foreground text-lg">
-            Connect, learn, and grow with a vibrant community of innovators shaping the future of technology in Africa.
+            Connect, learn, and grow with a vibrant community of innovators
+            shaping the future of technology in Africa.
           </p>
         </div>
 
@@ -83,7 +84,11 @@ export function CommunitySection() {
                     <span className="text-sm font-semibold text-primary">
                       {feature.stats}
                     </span>
-                    <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="group-hover:text-primary"
+                    >
                       {feature.action}
                       <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </Button>
@@ -114,7 +119,9 @@ export function CommunitySection() {
                 </div>
               </div>
               <p className="text-muted-foreground mb-6">
-                Subscribe to our newsletter for the latest tech news, startup stories, funding announcements, and exclusive content from Africa's innovation ecosystem.
+                Subscribe to our newsletter for the latest tech news, startup
+                stories, funding announcements, and exclusive content from
+                Africa's innovation ecosystem.
               </p>
               <form className="flex flex-col sm:flex-row gap-3">
                 <input

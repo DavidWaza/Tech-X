@@ -44,7 +44,7 @@ export function WebinarSection() {
   return (
     <section
       id="webinars"
-      className="py-24 bg-background relative overflow-hidden px-8 lg:px-16"
+      className="py-10 lg:py-24 bg-background relative overflow-hidden px-2 lg:px-16"
     >
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />

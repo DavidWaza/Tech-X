@@ -31,9 +31,27 @@ export function PodcastSection() {
   const [playingId, setPlayingId] = useState<number | null>(null);
   const [fullPlayerOpen, setFullPlayerOpen] = useState(false);
   const [selectedPodcast, setSelectedPodcast] = useState<Podcast | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const audioRefs = useRef<Map<number, HTMLAudioElement>>(new Map());
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const fullPlayerAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Determine how many podcasts to show (limit only on mobile)
+  const displayedPodcasts =
+    isMobile && !showAll ? podcasts.slice(0, 3) : podcasts;
 
   // Cleanup audio on unmount
   useEffect(() => {
@@ -124,7 +142,7 @@ export function PodcastSection() {
         {/* Section Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
-            <div>
+            <div className="px-3 md:px-0">
               <div className="flex items-center gap-3 mb-3">
                 <span className="flex items-center gap-2 text-sm font-medium text-primary uppercase tracking-wider bg-primary/10 py-2 px-4 rounded-full border border-primary/30">
                   <Headphones className="w-4 h-4" />
@@ -150,8 +168,8 @@ export function PodcastSection() {
         </div>
 
         {/* Podcast Grid - Spotify Style */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
-          {podcasts.map((podcast) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
+          {displayedPodcasts.map((podcast) => (
             <PodcastCard
               key={podcast.id}
               podcast={podcast}
@@ -163,6 +181,20 @@ export function PodcastSection() {
             />
           ))}
         </div>
+
+        {/* View More Button - Mobile Only */}
+        {isMobile && !showAll && podcasts.length > 3 && (
+          <div className="mt-6 flex justify-center">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAll(true)}
+              className="w-full"
+            >
+              View More Podcasts ({podcasts.length - 3} more)
+            </Button>
+          </div>
+        )}
       </div>
 
       {/* Full Podcast Player Modal */}

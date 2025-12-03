@@ -44,7 +44,7 @@ export function WebinarSection() {
   return (
     <section
       id="webinars"
-      className="py-24 bg-background relative overflow-hidden"
+      className="py-24 bg-background relative overflow-hidden px-8 lg:px-16"
     >
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -58,11 +58,11 @@ export function WebinarSection() {
               Live & Upcoming
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold">
-              Webinars & Events
+              Join our Spaces
             </h2>
             <p className="text-muted-foreground max-w-lg">
               Join live sessions with industry leaders and gain exclusive
-              insights into Africa's tech landscape.
+              insights into Africa&apos;s tech landscape.
             </p>
           </div>
           <Button variant="outline" className="flex items-center gap-2">

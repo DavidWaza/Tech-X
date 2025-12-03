@@ -53,7 +53,7 @@ export function CommunitySection() {
             Join the Movement
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-2 mb-4">
-            Be Part of Africa's Tech Community
+            Be Part of Africa&apos;s Tech Community
           </h2>
           <p className="text-muted-foreground text-lg">
             Connect, learn, and grow with a vibrant community of innovators
@@ -121,7 +121,7 @@ export function CommunitySection() {
               <p className="text-muted-foreground mb-6">
                 Subscribe to our newsletter for the latest tech news, startup
                 stories, funding announcements, and exclusive content from
-                Africa's innovation ecosystem.
+                Africa&apos;s innovation ecosystem.
               </p>
               <form className="flex flex-col sm:flex-row gap-3">
                 <input

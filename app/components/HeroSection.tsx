@@ -140,9 +140,9 @@ export function HeroSection() {
             <iframe
               width="100%"
               height="100%"
-              src={`https://www.youtube.com/embed/${getYouTubeVideoId(
-                activeContent.videoUrl
-              )}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+              // src={`https://www.youtube.com/embed/${getYouTubeVideoId(
+              //   activeContent.videoUrl
+              // )}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
               title={activeContent.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

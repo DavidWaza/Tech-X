@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sansita, Open_Sans } from "next/font/google";
+import { Ubuntu, Lato, Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const sansita = Sansita({
-  weight: ["400", "700", "800", "900"],
-  variable: "--font-sansita",
+const ubuntu = Ubuntu({
+  weight: ["400", "500", "700"],
+  variable: "--font-ubuntu",
   subsets: ["latin"],
 });
 
-const openSans = Open_Sans({
-  weight: ["400", "700", "800"],
-  variable: "--font-open-sans",
+const lato = Lato({
+  weight: ["400", "700", "900"],
+  variable: "--font-lato",
+  subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
   subsets: ["latin"],
 });
 
@@ -28,8 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${sansita.variable} ${openSans.className} antialiased dark`}
-        // style={{ fontFamily: "'Sansita', sans-serif" }}
+        className={`${ubuntu.variable} ${lato.variable} ${poppins.variable} ${ubuntu.className} antialiased dark`}
       >
         <Providers>{children}</Providers>
       </body>

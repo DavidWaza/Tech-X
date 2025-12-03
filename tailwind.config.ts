@@ -10,24 +10,26 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // African-Inspired Color Palette - Using OKLCH to match CSS variables
-      extend: {
-        fontFamily: {
-          sansita: ["Sansita", "serif"],
-          baloo: ["Baloo 2", "cursive"],
-          inter: ["Inter", "sans-serif"],
-          manrope: ["Manrope", "sans-serif"],
-        },
-        colors: {
-          primary: "#E5A54B",
-          "primary-dark": "#A56B2A",
-          "ash-black": "#0A0A0A",
-          "deep-brown": "#3B2F2F",
-          "kente-green": "#2F7F5F",
-          "saharan-red": "#B53920",
-          "nubian-purple": "#5A3A69",
-          "nile-blue": "#1A3F66",
-        },
+      fontFamily: {
+        ubuntu: ["var(--font-ubuntu)", "sans-serif"],
+        lato: ["var(--font-lato)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        sans: ["var(--font-ubuntu)", "sans-serif"],
+      },
+      colors: {
+        // African-Inspired Color Palette
+        "african-gold": "#E5A54B",
+        "african-ochre": "#D4A574",
+        "terracotta": "#C65D3B",
+        "burnt-sienna": "#A0522D",
+        "deep-brown": "#3B2F2F",
+        "kente-green": "#2F7F5F",
+        "kente-gold": "#D4AF37",
+        "saharan-red": "#B53920",
+        "nubian-purple": "#5A3A69",
+        "nile-blue": "#1A3F66",
+        "earth-brown": "#8B4513",
+        "savannah": "#C19A6B",
       },
 
       // African-Inspired Patterns & Effects

@@ -121,9 +121,7 @@ export function HeroSection() {
 
   return (
     <section className="relative xl:min-h-screen bg-background overflow-hidden">
-      {/* Main Video Player Area - Mobile First */}
       <div className="relative w-full h-auto md:aspect-video md:max-h-[70vh] lg:max-h-[85vh]">
-        {/* Fade transition effect */}
         <div
           className={`absolute inset-0 bg-background transition-opacity duration-300 z-10 pointer-events-none ${
             isTransitioning ? "opacity-100" : "opacity-0"

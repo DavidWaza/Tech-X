@@ -124,15 +124,23 @@ export function HeroSection() {
       {/* Main Video Player Area - Netflix Style */}
       <div className="relative w-full aspect-video max-h-[85vh]">
         {/* Fade transition effect */}
-        <div className={`absolute inset-0 bg-background transition-opacity duration-300 z-10 pointer-events-none ${isTransitioning ? 'opacity-100' : 'opacity-0'}`} />
-        
+        <div
+          className={`absolute inset-0 bg-background transition-opacity duration-300 z-10 pointer-events-none ${
+            isTransitioning ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
         {/* Video or YouTube Player */}
-        <div className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+        <div
+          className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
+            isTransitioning ? "opacity-0" : "opacity-100"
+          }`}
+        >
           {isYouTube ? (
             <iframe
               width="100%"
               height="100%"
-            //   src={`https://www.youtube.com/embed/${getYouTubeVideoId(activeContent.videoUrl)}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+              //   src={`https://www.youtube.com/embed/${getYouTubeVideoId(activeContent.videoUrl)}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
               title={activeContent.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -150,17 +158,19 @@ export function HeroSection() {
             </video>
           )}
         </div>
-        
+
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent" />
         <div className="absolute inset-0 bg-linear-to-r from-background/80 via-transparent to-transparent" />
-        
+
         {/* Content Overlay */}
         <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 lg:p-16">
           <div className="max-w-2xl animate-fade-up">
             <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
-              <span className="text-sm font-medium text-primary">{activeContent.tag}</span>
+              <span className="text-sm font-medium text-primary">
+                {activeContent.tag}
+              </span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-sansita font-bold mb-3 text-foreground">
               {activeContent.title}
@@ -174,7 +184,12 @@ export function HeroSection() {
 
             {/* Action Buttons */}
             <div className="flex items-center gap-3">
-              <Button variant="hero" size="lg" className="gap-2" onClick={() => setIsPlayingModal(true)}>
+              <Button
+                variant="hero"
+                size="lg"
+                className="gap-2"
+                onClick={() => setIsPlayingModal(true)}
+              >
                 <Play className="w-5 h-5 fill-current" />
                 Start Journey
               </Button>
@@ -194,7 +209,11 @@ export function HeroSection() {
             className="rounded-full bg-background/30 backdrop-blur-sm border border-muted-foreground/20 hover:bg-background/50"
             onClick={toggleMute}
           >
-            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+            {isMuted ? (
+              <VolumeX className="w-5 h-5" />
+            ) : (
+              <Volume2 className="w-5 h-5" />
+            )}
           </Button>
         </div>
 
@@ -205,8 +224,8 @@ export function HeroSection() {
       </div>
 
       {/* Carousel Section - Below Video */}
-      <div className="relative bg-background py-8 mt-1">
-        <div className="container px-4">
+      <div className="relative bg-background py-8 mt-1 lg:px-16">
+        <div className="container">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-display font-semibold text-foreground">
               Featured Entrepreneurs
@@ -258,8 +277,18 @@ export function HeroSection() {
               onClick={() => setIsPlayingModal(false)}
               className="absolute -top-12 right-0 text-white hover:text-primary transition-colors"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -270,18 +299,16 @@ export function HeroSection() {
                   <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(activeContent.videoUrl)}?autoplay=1&controls=1`}
+                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(
+                      activeContent.videoUrl
+                    )}?autoplay=1&controls=1`}
                     title={activeContent.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full"
                   />
                 ) : (
-                  <video
-                    autoPlay
-                    controls
-                    className="w-full h-full"
-                  >
+                  <video autoPlay controls className="w-full h-full">
                     <source src={activeContent.videoUrl} type="video/mp4" />
                   </video>
                 )}

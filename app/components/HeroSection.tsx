@@ -127,10 +127,7 @@ export function HeroSection() {
             isTransitioning ? "opacity-100" : "opacity-0"
           }`}
         />
-
-        {/* Video Container - Full width on mobile */}
         <div className="relative w-full h-[30vh] md:h-full">
-          {/* Video or YouTube Player */}
           <div
             className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
               isTransitioning ? "opacity-0" : "opacity-100"

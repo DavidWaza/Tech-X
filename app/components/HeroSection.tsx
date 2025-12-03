@@ -37,7 +37,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "CEO, FinStack Technologies",
     description: "From Lagos to global fintech dominance. Watch how Adaora built Africa's fastest-growing payment infrastructure.",
     videoUrl: "https://www.youtube.com/watch?v=oX7OduG1YmI",
-    thumbnailGradient: "from-primary/80 to-saharan-red/60",
+    thumbnailGradient: "from-primary/80 to-gold-dark/60",
     tag: "Featured This Week",
     initials: "AO"
   },
@@ -47,7 +47,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "Founder, AgriTech Ghana",
     description: "Revolutionizing African agriculture through AI-powered solutions. A story of innovation and resilience.",
     videoUrl: "https://www.youtube.com/watch?v=hmtuvNfytjM",
-    thumbnailGradient: "from-kente-green/80 to-nile-blue/60",
+    thumbnailGradient: "from-teal/80 to-emerald-600/60",
     tag: "Trending Now",
     initials: "KM"
   },
@@ -57,7 +57,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "CTO, CloudNine Africa",
     description: "Building cloud infrastructure for the continent. How one woman is changing Africa's digital landscape.",
     videoUrl: "https://www.youtube.com/watch?v=5KmopXwjXik",
-    thumbnailGradient: "from-nubian-purple/80 to-primary-dark/70",
+    thumbnailGradient: "from-purple-600/80 to-pink-500/60",
     tag: "Editor's Pick",
     initials: "AH"
   },
@@ -67,7 +67,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "CEO, EduLearn Africa",
     description: "Democratizing education across 15 African countries. The journey of Africa's EdTech pioneer.",
     videoUrl: "https://www.youtube.com/watch?v=1_gJp2uAjO0",
-    thumbnailGradient: "from-primary/80 to-deep-brown/60",
+    thumbnailGradient: "from-orange-500/80 to-red-600/60",
     tag: "New Episode",
     initials: "OA"
   },
@@ -77,7 +77,7 @@ const featuredContent: FeaturedContent[] = [
     subtitle: "Founder, HealthBridge",
     description: "Connecting rural communities to healthcare. A mission-driven approach to African healthtech.",
     videoUrl: "https://www.youtube.com/watch?v=5zvnFM2BXqY",
-    thumbnailGradient: "from-nile-blue/80 to-primary/60",
+    thumbnailGradient: "from-cyan-500/80 to-blue-600/60",
     tag: "Spotlight",
     initials: "FD"
   }
@@ -143,7 +143,6 @@ export function HeroSection() {
               ref={videoRef}
               autoPlay
               muted={isMuted}
-              loop
               playsInline
               className="w-full h-full object-cover"
             >
@@ -206,8 +205,8 @@ export function HeroSection() {
       </div>
 
       {/* Carousel Section - Below Video */}
-      <div className="relative bg-background py-8 mt-1 lg:px-16">
-        <div className="container">
+      <div className="relative bg-background py-8 mt-1">
+        <div className="container px-4">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-display font-semibold text-foreground">
               Featured Entrepreneurs
@@ -326,7 +325,7 @@ function CarouselCard({ content, isActive, onClick }: CarouselCardProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`
-        relative shrink-0 w-72 h-40 rounded-lg overflow-hidden cursor-pointer
+        relative flex-shrink-0 w-72 h-40 rounded-lg overflow-hidden cursor-pointer
         transition-all duration-300 ease-out
         ${isActive ? "ring-2 ring-primary scale-105" : "hover:scale-105"}
       `}
@@ -346,14 +345,14 @@ function CarouselCard({ content, isActive, onClick }: CarouselCardProps) {
       </video>
 
       {/* Gradient Thumbnail */}
-      <div className={`absolute inset-0 bg-linear-to-br ${content.thumbnailGradient} transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}>
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
+      <div className={`absolute inset-0 bg-gradient-to-br ${content.thumbnailGradient} transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
       <div className="absolute inset-0 p-4 flex flex-col justify-end">
         <div className="flex items-center gap-3">
-          <div className={`w-10 h-10 rounded-full bg-linear-to-br ${content.thumbnailGradient} flex items-center justify-center text-white font-bold text-sm`}>
+          <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${content.thumbnailGradient} flex items-center justify-center text-white font-bold text-sm`}>
             {content.initials}
           </div>
           <div>

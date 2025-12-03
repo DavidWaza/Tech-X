@@ -120,9 +120,9 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative lg:min-h-screen bg-background overflow-hidden">
-      {/* Main Video Player Area - Netflix Style */}
-      <div className="relative w-full min-h-[55vh] sm:min-h-[65vh] md:min-h-0 md:aspect-video md:max-h-[70vh] lg:max-h-[85vh]">
+    <section className="relative xl:min-h-screen bg-background overflow-hidden">
+      {/* Main Video Player Area - Mobile First */}
+      <div className="relative w-full h-auto md:aspect-video md:max-h-[70vh] lg:max-h-[85vh]">
         {/* Fade transition effect */}
         <div
           className={`absolute inset-0 bg-background transition-opacity duration-300 z-10 pointer-events-none ${
@@ -130,79 +130,110 @@ export function HeroSection() {
           }`}
         />
 
-        {/* Video or YouTube Player */}
-        <div
-          className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
-            isTransitioning ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          {isYouTube ? (
-            <iframe
-              width="100%"
-              height="100%"
-              // src={`https://www.youtube.com/embed/${getYouTubeVideoId(
-              //   activeContent.videoUrl
-              // )}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
-              title={activeContent.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <video
-              ref={videoRef}
-              autoPlay
-              muted={isMuted}
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src={activeContent.videoUrl} type="video/mp4" />
-            </video>
-          )}
-        </div>
-
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-linear-to-r from-background/80 via-transparent to-transparent" />
-
-        {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-10 lg:p-16">
-          <div className="max-w-2xl animate-fade-up">
-            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-2 sm:mb-3 md:mb-4">
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse-slow" />
-              <span className="text-xs sm:text-sm font-medium text-primary">
-                {activeContent.tag}
-              </span>
-            </div>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-sansita font-bold mb-2 sm:mb-3 text-foreground leading-tight">
-              {activeContent.title}
-            </h1>
-            <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-muted-foreground mb-1 sm:mb-2">
-              {activeContent.subtitle}
-            </p>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground/80 max-w-xl mb-4 sm:mb-5 md:mb-6 line-clamp-2 sm:line-clamp-3">
-              {activeContent.description}
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-              <Button
-                variant="hero"
-                size="lg"
-                className="gap-2 w-full sm:w-auto text-sm sm:text-base"
-                onClick={() => setIsPlayingModal(true)}
+        {/* Video Container - Full width on mobile */}
+        <div className="relative w-full h-[30vh] md:h-full">
+          {/* Video or YouTube Player */}
+          <div
+            className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
+              isTransitioning ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            {isYouTube ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${getYouTubeVideoId(
+                  activeContent.videoUrl
+                )}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+                title={activeContent.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <video
+                ref={videoRef}
+                autoPlay
+                muted={isMuted}
+                playsInline
+                className="w-full h-full object-cover"
               >
-                <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
-                Start Journey
-              </Button>
-              <Button
-                variant="glass"
-                size="lg"
-                className="gap-2 w-full sm:w-auto text-sm sm:text-base"
-              >
-                <Info className="w-4 h-4 sm:w-5 sm:h-5" />
-                More Info
-              </Button>
+                <source src={activeContent.videoUrl} type="video/mp4" />
+              </video>
+            )}
+          </div>
+
+          {/* Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
+
+          {/* Content Overlay */}
+          <div className="absolute -bottom-5 inset-0 flex flex-col justify-end p-4 pb-8 md:p-10 lg:p-16">
+            <div className="max-w-2xl">
+              {/* Tag Badge */}
+              <div className="inline-flex items-center gap-1.5 bg-primary/20 backdrop-blur-sm px-2.5 py-1 rounded-full mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-[10px] font-medium text-primary uppercase tracking-wide">
+                  {activeContent.tag}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h1 className="text-2xl md:text-5xl lg:text-6xl xl:text-7xl font-sansita font-bold mb-1.5 md:mb-3 text-foreground leading-tight">
+                {activeContent.title}
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-sm md:text-xl lg:text-2xl text-muted-foreground mb-2 md:mb-2">
+                {activeContent.subtitle}
+              </p>
+
+              {/* Description */}
+              <p className="text-xs md:text-base lg:text-lg text-muted-foreground/90 max-w-xl mb-4 md:mb-6 line-clamp-2">
+                {activeContent.description}
+              </p>
+
+              {/* Action Buttons - Mobile */}
+              <div className="md:hidden flex items-stretch gap-2">
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="gap-2 w-full text-sm"
+                  onClick={() => setIsPlayingModal(true)}
+                >
+                  <Play className="w-4 h-4 fill-current" />
+                  Start Journey
+                </Button>
+                <Button
+                  variant="glass"
+                  size="sm"
+                  className="gap-2 w-full text-sm"
+                >
+                  <Info className="w-4 h-4" />
+                  More Info
+                </Button>
+              </div>
+
+              {/* Action Buttons - Tablet & Desktop */}
+              <div className="hidden md:flex items-center gap-3">
+                <Button
+                  variant="hero"
+                  size="lg"
+                  className="gap-2 w-auto text-sm"
+                  onClick={() => setIsPlayingModal(true)}
+                >
+                  <Play className="w-4 h-4 fill-current" />
+                  Start Journey
+                </Button>
+                <Button
+                  variant="glass"
+                  size="lg"
+                  className="gap-2 w-auto text-sm"
+                >
+                  <Info className="w-4 h-4" />
+                  More Info
+                </Button>
+              </div>
             </div>
           </div>
         </div>

@@ -112,13 +112,7 @@ export function HeroSection() {
     }, 300);
   };
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
+  
   return (
     <section className="relative xl:min-h-screen bg-background overflow-hidden">
       <div className="relative w-full h-auto md:aspect-video md:max-h-[70vh] lg:max-h-[85vh]">
@@ -159,8 +153,8 @@ export function HeroSection() {
           </div>
 
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-background/60 via-transparent to-transparent" />
 
           {/* Content Overlay */}
           <div className="absolute -bottom-5 inset-0 flex flex-col justify-end p-4 pb-8 md:p-10 lg:p-16">
@@ -232,23 +226,6 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-
-        {/* Video Controls - Top Right */}
-        {/* <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 flex items-center gap-2 sm:gap-3 z-20">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-background/30 backdrop-blur-sm border border-muted-foreground/20 hover:bg-background/50 w-8 h-8 sm:w-10 sm:h-10"
-            onClick={toggleMute}
-          >
-            {isMuted ? (
-              <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
-            ) : (
-              <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
-            )}
-          </Button>
-        </div> */}
-
         {/* Progress Indicator */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-muted/30">
           <div className="h-full bg-primary w-1/3 transition-all duration-300" />
@@ -285,7 +262,7 @@ export function HeroSection() {
           {/* Carousel */}
           <div
             ref={carouselRef}
-            className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide pb-3 sm:pb-4 -mx-4 px-4 pt-4 sm:pt-7 snap-x snap-mandatory"
+            className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide pb-3 sm:pb-4 md:-mx-4 px-4 pt-4 sm:pt-7 mx-0.5 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {featuredContent.map((content, index) => (

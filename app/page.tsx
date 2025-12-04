@@ -3,6 +3,7 @@ import { Navbar } from "./components/Navbar";
 import { PodcastSection } from "./components/Podcast";
 import { WebinarSection } from "./components/Webinars";
 import { CommunitySection } from "./components/Community";
+import { VideoPlaylist } from "./components/VideoPlaylist";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <Navbar />
         <HeroSection />
+        <VideoPlaylist />
         <PodcastSection />
         <WebinarSection />
         <CommunitySection />
